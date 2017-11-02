@@ -26,7 +26,7 @@
         <div class="row">
                 <div class="logo">
                     <img src="logo_small.svg">
-                    <h1>Спецкомбинат <span>ЛПХ</span>авчик</h1>
+                    <h1>Спецкомбинат <span>ЛПХ</span></h1>
                 </div><!-- logo -->
         </div><!-- row -->
     </div><!-- container -->
