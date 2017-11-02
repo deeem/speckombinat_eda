@@ -36,7 +36,7 @@
             <div class="col-sm-6">
 
                 <?php foreach ($pripyat as $title => $menu): ?>
-                    <div class="panel panel-default">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
                             <h3 class="panel-title"><?= $title ?></h3>
                             </div>
@@ -61,7 +61,7 @@
             <div class="col-sm-6">
 
                 <?php foreach ($skazka as $title => $menu): ?>
-                    <div class="panel panel-default">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
                             <h3 class="panel-title"><?= $title ?></h3>
                             </div>
