@@ -3,7 +3,7 @@
 body {
   background-color: #ffffff;
   font-family: Roboto, sans-serif;
-  color: #888888;
+  color: #464545;
 
   -webkit-font-smoothing: antialiased;
 }
@@ -12,9 +12,13 @@ h1, h2 {
     color: #888888;
 }
 
+table th {
+    color: #888888;
+}
+
 /** LOGO **/
 .logo {
-    padding: 2em 0 2em 5em;
+    padding: 2em 0 3em 5em;
 }
 .logo img {
     margin-top: -17px;

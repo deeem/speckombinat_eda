@@ -32,6 +32,62 @@
     </div><!-- container -->
 
     <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+
+                <?php foreach ($skazka as $title => $menu): ?>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><?= $title ?></h3>
+                            </div>
+                        <table class="table">
+                            <tr>
+                                <th>#</th>
+                                <th>Блюдо</th>
+                                <th>Выход</th>
+                                <th>Стоимость</th>
+                            </tr>
+                            <?php foreach($menu as $key => $bludo): ?>
+                            <tr>
+                                <td><?= $key ?></td>
+                                <td><?= $bludo['name'] ?></td>
+                                <td><?= $bludo['amount'] ?></td>
+                                <td><?= $bludo['price'] ?></td>
+                            </tr>
+                            <?php endforeach ?>
+                        </table>
+                    </div><!-- panel -->
+                <?php endforeach ?>
+
+            </div><!-- col -->
+            <div class="col-sm-6">
+
+                <?php foreach ($pripyat as $title => $menu): ?>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><?= $title ?></h3>
+                            </div>
+                        <table class="table">
+                            <tr>
+                                <th>#</th>
+                                <th>Блюдо</th>
+                                <th>Выход</th>
+                                <th>Стоимость</th>
+                            </tr>
+                            <?php foreach($menu as $key => $bludo): ?>
+                            <tr>
+                                <td><?= $key ?></td>
+                                <td><?= $bludo['name'] ?></td>
+                                <td><?= $bludo['amount'] ?></td>
+                                <td><?= $bludo['price'] ?></td>
+                            </tr>
+                            <?php endforeach ?>
+                        </table>
+                    </div><!-- panel -->
+                <?php endforeach ?>
+
+            </div><!-- col -->
+        </div>
     </div><!-- container -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
