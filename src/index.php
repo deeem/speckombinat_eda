@@ -48,4 +48,4 @@ foreach($menues as $key => $value) {
     }
 }
 
-eval(\Psy\sh());
+include('view.php');

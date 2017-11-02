@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  background-color: #ffffff;
+  font-family: Roboto, sans-serif;
+  color: #888888;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2 {
+    color: #888888;
+}
+
+/** LOGO **/
+.logo {
+    padding: 2em 0 2em 5em;
+}
+.logo img {
+    margin-top: -17px;
+    width: 50px;
+    display: inline;
+}
+.logo h1 {
+    padding-left: .3em;
+    font-size: 2em;
+    display: inline;
+}
+.logo span {
+    color: #ff925c;
+}
