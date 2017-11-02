@@ -5,6 +5,9 @@ require_once "/app/vendor/autoload.php";
 
 use GuzzleHttp\Client;
 
+$date = (new \DateTime())->setTime(0, 0, 0);
+$today = $date->format('Y-m-d') . 'T' . $date->format('H:i:s');
+
 $base_uri = "http://10.0.8.30:8080";
 
 $client = new Client([
@@ -15,7 +18,7 @@ $client = new Client([
 
 $response = $client->request(
     'GET',
-    '/lpp_ktk/odata/standard.odata/InformationRegister_ДневныеМеню',
+    "/lpp_ktk/odata/standard.odata/InformationRegister_ДневныеМеню_RecordType/SliceFirst(Period=datetime'". $today ."')",
     [
         'query' => [
             '$format' => 'json',
@@ -30,21 +33,21 @@ $menues = $json->value;
 $skazka = [];
 $pripyat = [];
 
-foreach($menues as $key => $value) {
-    foreach($value->RecordSet as $kompleks) {
-        if ($kompleks->Склад == "ВГХ ЇДАЛЬНЯ \"ПРИП'ЯТЬ\"") {
-            $pripyat[$kompleks->Комплекс][$kompleks->LineNumber] = [
-                'name' => $kompleks->Блюдо,
-                'amount' => $kompleks->Выход,
-                'price' => $kompleks->Сумма
-            ];
-        } else {
-            $skazka[$kompleks->Комплекс][$kompleks->LineNumber] = [
-                'name' => $kompleks->Блюдо,
-                'amount' => $kompleks->Выход,
-                'price' => $kompleks->Сумма
-            ];
-        }
+foreach($menues as $kompleks) {
+    if ($kompleks->Period !== $today) continue;
+
+    if ($kompleks->Склад == "ВГХ ЇДАЛЬНЯ \"ПРИП'ЯТЬ\"") {
+        $pripyat[$kompleks->Комплекс][] = [
+            'name' => $kompleks->Блюдо,
+            'amount' => $kompleks->Выход,
+            'price' => $kompleks->Сумма
+        ];
+    } else {
+        $skazka[$kompleks->Комплекс][] = [
+            'name' => $kompleks->Блюдо,
+            'amount' => $kompleks->Выход,
+            'price' => $kompleks->Сумма
+        ];
     }
 }
 
