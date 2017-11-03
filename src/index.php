@@ -18,7 +18,7 @@ $client = new Client([
 
 $response = $client->request(
     'GET',
-    "/lpp_ktk/odata/standard.odata/InformationRegister_ДневныеМеню_RecordType/SliceFirst(Period=datetime'". $today ."')",
+    "/lpp_ktk/odata/standard.odata/InformationRegister_МенюСтоловых_RecordType/SliceFirst(Period=datetime'". $today ."')",
     [
         'query' => [
             '$format' => 'json',
@@ -36,14 +36,14 @@ $pripyat = [];
 foreach($menues as $kompleks) {
     if ($kompleks->Period !== $today) continue;
 
-    if ($kompleks->Склад == "ВГХ ЇДАЛЬНЯ \"ПРИП'ЯТЬ\"") {
-        $pripyat[$kompleks->Комплекс][] = [
+    if ($kompleks->Столовая == "КАЗКА") {
+        $skazka[$kompleks->Комплекс][] = [
             'name' => $kompleks->Блюдо,
             'amount' => $kompleks->Выход,
             'price' => $kompleks->Сумма
         ];
     } else {
-        $skazka[$kompleks->Комплекс][] = [
+        $pripyat[$kompleks->Комплекс][] = [
             'name' => $kompleks->Блюдо,
             'amount' => $kompleks->Выход,
             'price' => $kompleks->Сумма
